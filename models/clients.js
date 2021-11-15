@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 const db = require("../db/connection");
 
-const User = db.define("User", {
+const Clients = db.define("Client", {
   // Model attributes are defined here
   rut: {
     type: DataTypes.STRING,
@@ -23,7 +23,8 @@ const User = db.define("User", {
   },
   estado: {
     type: DataTypes.BOOLEAN,
+    defaultValue: 1,
   },
 });
 
-module.exports = User;
+module.exports = Clients;
