@@ -19,14 +19,13 @@ const createUser = async (req, res = response) => {
 
     const user = new User(body);
 
-     //Encriptar contraseña
+    //Encriptar contraseña
     const salt = bcryptjs.genSaltSync();
-    user.password = bcryptjs.hashSync(password, salt);
+    user.password = bcryptjs.hashSync(body.password, salt);
 
     await user.save();
 
     res.json(user);
-
   } catch (error) {
     console.log(error);
     res.status(500).json({
